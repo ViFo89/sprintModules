@@ -1,0 +1,76 @@
+﻿body {
+    background: #000;
+    font-family: sans-serif;
+}
+
+.module {
+    display: inline-block;
+    color: gray;
+}
+table {
+    border-collapse: collapse;
+    width: 334px;
+}
+th {
+    border-bottom: 1px solid gray;
+}
+
+
+/****************/
+.story.todo {
+    border-right: 1px solid gray;
+}
+
+.story.done {
+    border-left: 1px solid gray;
+}
+.task {
+    border: 1px solid #2f2f2f;
+    border-bottom:none;
+    border-right:none;
+}
+
+
+.file-text {
+    margin-top: .2em;
+    font-size: .4em;
+}
+
+.story-text {
+    margin-top: .2em;
+    font-size: .4em;
+    color: white;
+}
+/* 
+    This selector will be activated only when multiple tasks are present
+*/
+.fa-files-o ~ .file-text {
+    margin-top: .5em;
+    margin-left: .7em;
+    font-size: .4em;
+}
+
+
+.task {
+    
+    color: rgb(169, 176, 7);
+}
+.story.todo {
+    color: rgba(100, 189, 68, 0.9);
+}
+.story.done {
+    color: rgba(170, 1, 18, 0.9);
+} 
+
+#sprintItemModal {
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+    height: 100px;
+    background: whitesmoke;
+    position: relative;
+    top: -100px;
+    left: 350px;
+    box-shadow: 5px 9px 18px rgb(117, 112, 112);
+
+}
