@@ -14,7 +14,7 @@
             <tr ng-repeat="item in sprintItems | limitTo:storyLimit">
                 <!-- Story _todo_ -->
                 <td class="story todo">
-                    <span ng-hide="item.done" class="fa-stack fa-2x" title="{{item.storyName}}" ng-click="toggleSprintItemModal($index, 'story')">
+                    <span ng-hide="item.done" class="fa-stack fa-2x" title="{{item.storyName}}" ng-click="toggleSprintItemModal($index, {type:'story'})">
                         <i class="fa fa-file fa-stack-1x"></i>
                         <strong class="fa-stack-1x fa-stack-text story-text">{{$index+1}}</strong>
                     </span>
@@ -23,28 +23,27 @@
                 <!-- Tasks -->
                 <td class="task todo">
 
-                    <span class="fa-stack fa-2x" ng-hide="{{countTasks($index, 'todo') == 0}}" ng-click="toggleSprintItemModal($index, 'task')">
+                    <span class="fa-stack fa-2x" ng-hide="{{countTasks($index, 'todo') == 0}}" ng-click="toggleSprintItemModal($index, {type:'task', status:'todo'})">
                         <i class="fa fa-stack-1x" ng-class="(countTasks($index, 'todo') == 1) ? 'fa-file-o' : 'fa-files-o'"></i>
                         <strong class="fa-stack-1x fa-stack-text file-text">{{countTasks($index, 'todo')}}</strong>
                     </span>
                 </td>
                 <td class="task doing">
 
-                    <span class="fa-stack fa-2x" ng-hide="{{countTasks($index, 'doing') == 0}}" ng-click="toggleSprintItemModal($index, 'task')">
+                    <span class="fa-stack fa-2x" ng-hide="{{countTasks($index, 'doing') == 0}}" ng-click="toggleSprintItemModal($index, {type:'task', status:'doing'})">
                         <i class="fa fa-stack-1x" ng-class="(countTasks($index, 'todo') == 1) ? 'fa-file-o' : 'fa-files-o'"></i>
                         <strong class="fa-stack-1x fa-stack-text file-text">{{countTasks($index, 'doing')}}</strong>
                     </span>
                 </td>
                 <td class="task done">
-                    <span class="fa-stack fa-2x" ng-hide="{{countTasks($index, 'done') == 0}}" ng-click="toggleSprintItemModal($index, 'task')">
+                    <span class="fa-stack fa-2x" ng-hide="{{countTasks($index, 'done') == 0}}" ng-click="toggleSprintItemModal($index, {type:'task', status:'done'})">
                         <i class="fa fa-stack-1x" ng-class="(countTasks($index, 'todo') == 1) ? 'fa-file-o' : 'fa-files-o'"></i>
                         <strong class="fa-stack-1x fa-stack-text file-text">{{countTasks($index, 'done')}}</strong>
                     </span>
-
                 </td>
                 <!-- Story _done_ -->
                 <td class="story done">
-                    <span ng-show="item.done" class="fa-stack fa-2x" title="{{item.storyName}}" ng-click="toggleSprintItemModal($index, 'story')">
+                    <span ng-show="item.done" class="fa-stack fa-2x" title="{{item.storyName}}" ng-click="toggleSprintItemModal($index, {type:'story'})">
                         <i class="fa fa-file fa-stack-1x"></i>
                         <strong class="fa-stack-1x fa-stack-text story-text">{{$index+1}}</strong>
                     </span>
@@ -53,14 +52,5 @@
 
         </tbody>
     </table>
-    
-    <!-- -->
-    <div id="sprintItemModal" ng-show="showSprintItemModal">
-        <a href="" ng-click="toggleSprintItemModal(-1)"> X </a>
-        <h3>{{}}</h3>
-        <ul ng-repeat="item in chosenItems">
-            <li><a href="{{item.link}}">{{item.description}}</a></li>
-        </ul>
-    </div>
 
 </div>
